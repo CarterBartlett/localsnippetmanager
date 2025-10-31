@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <div id="container">
+        <aside id="snippets-list" class="border-r-2 flex flex-col h-full">
+            <button id="btn-add-snippet" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-0">Add
+            Snippet</button>
+            <ul id="snippets-ul" class="flex-1 overflow-y-auto">
+            <!-- Snippet items will be added here -->
+            </ul>
+            <div id="sidebar-footer">
+                <button id="btn-import-library" class="w-full bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-0">
+                    <i class="fas fa-upload mr-2"></i>Import Library
+                </button>
+                <button id="btn-export-library" class="w-full bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-0">
+                    <i class="fas fa-download mr-2"></i>Export Library
+                </button>
+            </div>
+        </aside>
+
+        <main id="snippet-editor">
+            <input type="hidden" id="snippet-id" readonly>
+            <div class="flex items-center border-b-2">
+                <i id="icon-unsaved" class="fa-solid fa-circle-exclamation mx-1" hidden></i>
+                <input type="text" id="snippet-title" class="w-full border-0 border-gray-300 rounded-tl p-2 mb-0"
+                    placeholder="Snippet Title" disabled>
+                <button id="btn-copy-snippet"
+                    class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 m-0 border-0" disabled>
+                    <i class="fas fa-copy mr-2"></i>
+                </button>
+                <button id="btn-save-snippet"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-tr m-0 border-0"
+                    disabled>
+                    <i class="fas fa-save mr-2"></i>
+                </button>
+            </div>
+            <textarea id="snippet-content" class="w-full h-full border-0 rounded-b p-2 mt-0" disabled></textarea>
+        </main>
+    </div>
+    <div class="overlay" id="confirmation-box">
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+            <h1 class="displaytext">DISPTEXT</h1>
+            <div class="inline-flex mt-4">
+                <button class="btn-ok bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-l-md w-32">OK</button>
+                <button class="btn-cancel bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-r-md w-32">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="save-confirmation-box">
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+            <h1 class="displaytext">You have unsaved changes. Do you want to save before continuing?</h1>
+            <div class="inline-flex mt-4">
+                <button class="btn-save bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-l-md w-32">Save</button>
+                <button class="btn-nosave bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 w-32">Don't Save</button>
+                <button class="btn-cancel bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-r-md w-32">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

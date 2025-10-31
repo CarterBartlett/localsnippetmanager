@@ -1,0 +1,82 @@
+div#container {
+    display: flex;
+    flex: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+div#container > main {
+    flex-grow: 1;
+}
+
+div#container > aside {
+    flex-shrink: 0;
+    width: 250px;
+}
+
+ul#snippets-ul li {
+    list-style-type: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    background-color: #f4f4f4;
+}
+ul#snippets-ul li:nth-child(odd) {
+    background-color: #fbfbfb;
+}
+ul#snippets-ul li.selected {
+    background-color: #bcd7ff;
+}
+ul#snippets-ul li.selected:hover {
+    background-color: #9bc3ff;
+}
+
+ul#snippets-ul li:hover {
+    background-color: #e0e0e0;
+    transition: ease-in-out 0.2s;
+} 
+
+ul#snippets-ul li button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 1;
+}
+
+main#snippet-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main#snippet-editor *:disabled {
+    background-color: #e0e0e0;
+}
+
+main#snippet-editor textarea {
+    font-family: monospace;
+    font-size: 14px;
+    resize: none;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    cursor: pointer;
+}
+
+#sidebar-footer button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
